@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<style>
+@page {
+    size: A4;
+    margin: 12mm;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f1f5f9;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2937;
+}
+
+.document {
+    width: 210mm;
+    margin: 0 auto;
+    background: white;
+}
+
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 16mm 15mm;
+    background: white;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover {
+    border-top: 14mm solid #6b002c;
+    border-bottom: 6mm solid #b38b2d;
+}
+
+.header {
+    background: #6b002c;
+    color: white;
+    padding: 9px 13px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.subheader {
+    color: #6b002c;
+    border-left: 5px solid #6b002c;
+    background: #f8fafc;
+    padding: 8px 10px;
+    margin: 14px 0 8px 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.school {
+    text-align: center;
+    margin-top: 18mm;
+}
+
+.school h1 {
+    color: #6b002c;
+    font-size: 22px;
+    margin: 0;
+    letter-spacing: .4px;
+}
+
+.school h2 {
+    font-size: 17px;
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.logo-box {
+    width: 95px;
+    height: 95px;
+    margin: 22px auto;
+    border: 2px dashed #cbd5e1;
+    border-radius: 6px;
+    color: #64748b;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.title {
+    text-align: center;
+    margin-top: 25mm;
+}
+
+.title h1 {
+    color: #6b002c;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.title h2 {
+    color: #334155;
+    font-size: 20px;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.title h3 {
+    color: #475569;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+    margin-top: 8px;
+}
+
+th {
+    background: #6b002c;
+    color: white;
+    padding: 7px;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+}
+
+td {
+    padding: 7px;
+    border: 1px solid #cbd5e1;
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.info-table th {
+    width: 34%;
+}
+
+p {
+    font-size: 12.5px;
+    line-height: 1.45;
+    text-align: justify;
+    margin: 8px 0;
+}
+
+ul {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    padding-left: 22px;
+}
+
+li {
+    font-size: 12.3px;
+    line-height: 1.42;
+    margin-bottom: 3px;
+}
+
+.note {
+    background: #fff7ed;
+    border-left: 5px solid #b38b2d;
+    padding: 9px 11px;
+    margin-top: 12px;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10mm;
+    left: 15mm;
+    right: 15mm;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 5px;
+    font-size: 10px;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signature-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30mm;
+}
+
+.signature {
+    width: 42%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.line {
+    border-top: 1px solid #111827;
+    padding-top: 6px;
+}
+
+.badge {
+    display: inline-block;
+    background: #b38b2d;
+    color: white;
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .document {
+        width: 210mm;
+        margin: 0;
+    }
+
+    .page {
+        margin: 0;
+        page-break-after: always;
+        box-shadow: none;
+    }
+
+    table, tr, td, th {
+        page-break-inside: avoid;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="document">
+
+<!-- PORTADA -->
+<section class="page cover">
+
+    <div class="school">
+        <h1>Instituto Politécnico Nacional</h1>
+        <h2>Escuela Superior de Física y Matemáticas</h2>
+        <h2>ESFM</h2>
+    </div>
+
+    <div class="logo-box">
+        Espacio para<br>logo IPN / ESFM
+    </div>
+
+    <div class="title">
+        <h1>Plan de Auditoría</h1>
+        <h2>Proceso de Check-in de Pasajeros en Aeroméxico</h2>
+        <h3>Asignatura: El sistema de calidad</h3>
+        <span class="badge">Documento académico</span>
+    </div>
+
+    <table class="info-table" style="margin-top: 28mm;">
+        <tr>
+            <th>Institución</th>
+            <td>Instituto Politécnico Nacional</td>
+        </tr>
+        <tr>
+            <th>Unidad Académica</th>
+            <td>Escuela Superior de Física y Matemáticas</td>
+        </tr>
+        <tr>
+            <th>Asignatura</th>
+            <td>El sistema de calidad</td>
+        </tr>
+        <tr>
+            <th>Título del trabajo</th>
+            <td>Plan de auditoría</td>
+        </tr>
+        <tr>
+            <th>Empresa seleccionada</th>
+            <td>Aeroméxico</td>
+        </tr>
+        <tr>
+            <th>Integrantes</th>
+            <td>Kim Seong Kyeong<br>Diana Bravo Perez</td>
+        </tr>
+        <tr>
+            <th>Fecha de elaboración</th>
+            <td>28 de mayo de 2026</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 1</span>
+    </div>
+</section>
+
+<!-- PAGINA 2 -->
+<section class="page">
+    <div class="header">1. Datos Generales de la Auditoría</div>
+
+    <table class="info-table">
+        <tr>
+            <th>Empresa seleccionada</th>
+            <td>Aeroméxico</td>
+        </tr>
+        <tr>
+            <th>Proceso auditado</th>
+            <td>Proceso de check-in de pasajeros</td>
+        </tr>
+        <tr>
+            <th>Área auditada</th>
+            <td>Atención a pasajeros / Servicio al cliente en aeropuerto</td>
+        </tr>
+        <tr>
+            <th>Tipo de auditoría</th>
+            <td>Auditoría interna</td>
+        </tr>
+        <tr>
+            <th>Norma de referencia</th>
+            <td>ISO 9001:2015</td>
+        </tr>
+        <tr>
+            <th>Fecha de inicio</th>
+            <td>10 de junio de 2026</td>
+        </tr>
+        <tr>
+            <th>Fecha de finalización</th>
+            <td>12 de junio de 2026</td>
+        </tr>
+        <tr>
+            <th>Horario</th>
+            <td>09:00 a 14:00 horas</td>
+        </tr>
+        <tr>
+            <th>Idioma</th>
+            <td>Español</td>
+        </tr>
+        <tr>
+            <th>Grupo auditor</th>
+            <td>Auditores del Mañana</td>
+        </tr>
+        <tr>
+            <th>Auditor líder</th>
+            <td>Kim Seong Kyeong</td>
+        </tr>
+    </table>
+
+    <div class="subheader">2. Nota de carácter académico</div>
+
+    <p>
+        El presente documento corresponde a un plan de auditoría interna elaborado con fines académicos para la asignatura
+        de El sistema de calidad. La empresa seleccionada como caso de estudio es Aeroméxico y el proceso definido para la
+        auditoría es el check-in de pasajeros.
+    </p>
+
+    <p>
+        La información presentada no corresponde a documentación interna oficial de Aeroméxico. El contenido fue desarrollado
+        como una propuesta académica basada en la estructura de un plan de auditoría, en los principios de la norma ISO
+        9001:2015 y en el análisis general de un proceso de atención al cliente dentro del sector aeroportuario.
+    </p>
+
+    <div class="note">
+        Este plan debe interpretarse como una simulación académica aplicada a una empresa real, no como un documento oficial
+        emitido por Aeroméxico.
+    </div>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 2</span>
+    </div>
+</section>
+
+<!-- PAGINA 3 -->
+<section class="page">
+    <div class="header">3. Descripción del Proceso Auditado</div>
+
+    <div class="subheader">3.1 Proceso de check-in de pasajeros</div>
+
+    <p>
+        El proceso de check-in de pasajeros es una etapa operativa y de servicio al cliente que se realiza antes del abordaje
+        del vuelo. Su finalidad es registrar al pasajero, verificar su reservación, confirmar sus datos, revisar la documentación
+        requerida, asignar o confirmar asiento, registrar equipaje documentado y emitir el pase de abordar.
+    </p>
+
+    <p>
+        Este proceso representa un punto crítico en la experiencia del pasajero, ya que una atención deficiente, retrasos,
+        errores en documentación o problemas con el equipaje pueden afectar la percepción del servicio y generar
+        inconformidades.
+    </p>
+
+    <div class="subheader">3.2 Actividades incluidas</div>
+
+    <ul>
+        <li>Recepción y orientación inicial del pasajero.</li>
+        <li>Verificación de identidad y documentos de viaje.</li>
+        <li>Confirmación de reservación y datos del vuelo.</li>
+        <li>Asignación o confirmación de asiento.</li>
+        <li>Registro y etiquetado de equipaje documentado.</li>
+        <li>Emisión y entrega del pase de abordar.</li>
+        <li>Información sobre sala, puerta y horario de abordaje.</li>
+        <li>Atención de incidencias relacionadas con documentación, equipaje, cambios de vuelo o fallas del sistema.</li>
+    </ul>
+
+    <div class="subheader">3.3 Actividades no incluidas</div>
+
+    <ul>
+        <li>Mantenimiento de aeronaves.</li>
+        <li>Operaciones en pista.</li>
+        <li>Servicio durante el vuelo.</li>
+        <li>Proceso de abordaje.</li>
+        <li>Control migratorio.</li>
+        <li>Inspección de seguridad realizada por autoridades aeroportuarias.</li>
+    </ul>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 3</span>
+    </div>
+</section>
+
+<!-- PAGINA 4 -->
+<section class="page">
+    <div class="header">4. Alcance y Objetivo de la Auditoría</div>
+
+    <div class="subheader">4.1 Alcance de la auditoría</div>
+
+    <p>
+        El alcance de la auditoría comprende el proceso de check-in de pasajeros de Aeroméxico, desde la llegada del pasajero
+        al área de documentación, mostrador o kiosco de autoservicio, hasta la entrega del pase de abordar y la orientación
+        hacia la sala de abordaje.
+    </p>
+
+    <p>
+        La auditoría considera la revisión de actividades relacionadas con atención al cliente, verificación documental, uso
+        de sistemas, registro de equipaje, control de información documentada, atención de incidencias y cumplimiento de los
+        procedimientos establecidos para el proceso.
+    </p>
+
+    <div class="subheader">4.2 Objetivo general</div>
+
+    <p>
+        Verificar que el proceso de check-in de pasajeros se realice de manera controlada, eficiente y conforme a los requisitos
+        del Sistema de Gestión de la Calidad, considerando los lineamientos aplicables de la norma ISO 9001:2015.
+    </p>
+
+    <div class="subheader">4.3 Objetivos específicos</div>
+
+    <ul>
+        <li>Evaluar el cumplimiento de los procedimientos establecidos para el check-in de pasajeros.</li>
+        <li>Verificar la correcta revisión de documentos y datos del pasajero.</li>
+        <li>Comprobar el control de registros generados durante el proceso.</li>
+        <li>Identificar riesgos relacionados con retrasos, errores o fallas del sistema.</li>
+        <li>Evaluar la atención brindada al pasajero durante el proceso.</li>
+        <li>Detectar no conformidades y oportunidades de mejora.</li>
+    </ul>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 4</span>
+    </div>
+</section>
+
+<!-- PAGINA 5 -->
+<section class="page">
+    <div class="header">5. Criterios, Método y Muestreo de Auditoría</div>
+
+    <div class="subheader">5.1 Criterios de auditoría</div>
+
+    <p>
+        Los criterios de auditoría son los requisitos, documentos y lineamientos contra los cuales se comparará la evidencia
+        obtenida durante el desarrollo de la auditoría.
+    </p>
+
+    <ul>
+        <li>Norma ISO 9001:2015.</li>
+        <li>Procedimiento general de check-in de pasajeros.</li>
+        <li>Políticas de atención al cliente.</li>
+        <li>Procedimiento de documentación de equipaje.</li>
+        <li>Registros de pasajeros atendidos.</li>
+        <li>Registros de equipaje documentado.</li>
+        <li>Reportes de incidencias.</li>
+        <li>Indicadores de desempeño del proceso.</li>
+        <li>Quejas y retroalimentación de pasajeros.</li>
+    </ul>
+
+    <div class="subheader">5.2 Método de auditoría</div>
+
+    <table>
+        <tr>
+            <th>Método</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>Revisión documental</td>
+            <td>Revisión de procedimientos, formatos, registros, reportes de incidencias, quejas e indicadores relacionados con el proceso.</td>
+        </tr>
+        <tr>
+            <td>Observación directa</td>
+            <td>Observación del proceso de check-in en mostrador o kiosco, considerando tiempos, atención al cliente y cumplimiento del procedimiento.</td>
+        </tr>
+        <tr>
+            <td>Entrevistas</td>
+            <td>Entrevistas al personal de mostrador, supervisores y responsables del proceso.</td>
+        </tr>
+        <tr>
+            <td>Muestreo de registros</td>
+            <td>Revisión de una muestra de registros de pasajeros, equipaje, incidencias y quejas.</td>
+        </tr>
+    </table>
+
+    <div class="subheader">5.3 Tipo de muestreo</div>
+
+    <p>
+        El muestreo será basado en riesgos, considerando que el check-in es un proceso crítico para la operación del vuelo y
+        para la experiencia del pasajero.
+    </p>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 5</span>
+    </div>
+</section>
+
+<!-- PAGINA 6 -->
+<section class="page">
+    <div class="header">6. Requisitos ISO 9001:2015 Relacionados</div>
+
+    <table>
+        <tr>
+            <th>Requisito ISO 9001:2015</th>
+            <th>Aplicación en el proceso de check-in</th>
+        </tr>
+        <tr>
+            <td>4.4 Sistema de gestión de la calidad y sus procesos</td>
+            <td>Identificación de entradas, actividades, salidas, responsables e indicadores del proceso.</td>
+        </tr>
+        <tr>
+            <td>5.1 Liderazgo y compromiso</td>
+            <td>Compromiso de la dirección para asegurar la calidad del servicio al pasajero.</td>
+        </tr>
+        <tr>
+            <td>6.1 Acciones para abordar riesgos y oportunidades</td>
+            <td>Identificación de riesgos como retrasos, errores en documentación, pérdida de equipaje o fallas del sistema.</td>
+        </tr>
+        <tr>
+            <td>7.1 Recursos</td>
+            <td>Verificación de personal, mostradores, kioscos, sistemas digitales y equipo para etiquetado de equipaje.</td>
+        </tr>
+        <tr>
+            <td>7.2 Competencia</td>
+            <td>Revisión de capacitación y competencia del personal que participa en el proceso.</td>
+        </tr>
+        <tr>
+            <td>7.5 Información documentada</td>
+            <td>Control de procedimientos, formatos, registros y evidencias del proceso.</td>
+        </tr>
+        <tr>
+            <td>8.2 Requisitos para los productos y servicios</td>
+            <td>Revisión de requisitos del pasajero antes de prestar el servicio.</td>
+        </tr>
+        <tr>
+            <td>8.5 Producción y provisión del servicio</td>
+            <td>Ejecución controlada del servicio de check-in.</td>
+        </tr>
+        <tr>
+            <td>9.1 Seguimiento, medición, análisis y evaluación</td>
+            <td>Evaluación de tiempos de espera, errores, quejas y satisfacción del cliente.</td>
+        </tr>
+        <tr>
+            <td>10.2 No conformidad y acción correctiva</td>
+            <td>Atención de errores, quejas, fallas del sistema o problemas con equipaje.</td>
+        </tr>
+        <tr>
+            <td>10.3 Mejora continua</td>
+            <td>Identificación de oportunidades para mejorar la rapidez, calidad y eficiencia del proceso.</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 6</span>
+    </div>
+</section>
+
+<!-- PAGINA 7 -->
+<section class="page">
+    <div class="header">7. Programa de Auditoría</div>
+
+    <table>
+        <tr>
+            <th>Fecha</th>
+            <th>Actividad</th>
+            <th>Requisito</th>
+            <th>Duración</th>
+            <th>Responsable</th>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Reunión inicial de auditoría</td>
+            <td>General</td>
+            <td>30 min</td>
+            <td>Auditor líder</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Presentación del alcance, objetivo y criterios de auditoría</td>
+            <td>4.4, 5.1</td>
+            <td>1 hr</td>
+            <td>Auditor líder</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Revisión del procedimiento de check-in de pasajeros</td>
+            <td>4.4, 7.5, 8.5</td>
+            <td>2 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Verificación de recursos disponibles para el proceso</td>
+            <td>7.1</td>
+            <td>1.5 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Revisión de capacitación y competencia del personal</td>
+            <td>7.2</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Observación directa del proceso de check-in en mostrador</td>
+            <td>8.2, 8.5, 9.1</td>
+            <td>2 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Revisión de verificación de documentos de pasajeros</td>
+            <td>8.2, 8.5</td>
+            <td>1.5 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Revisión del registro y etiquetado de equipaje</td>
+            <td>8.5, 7.5</td>
+            <td>1.5 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 7</span>
+    </div>
+</section>
+
+<!-- PAGINA 8 -->
+<section class="page">
+    <div class="header">7. Programa de Auditoría Continuación</div>
+
+    <table>
+        <tr>
+            <th>Fecha</th>
+            <th>Actividad</th>
+            <th>Requisito</th>
+            <th>Duración</th>
+            <th>Responsable</th>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Evaluación de atención al cliente e incidencias</td>
+            <td>8.2, 9.1, 10.2</td>
+            <td>2 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Revisión de quejas y retroalimentación de pasajeros</td>
+            <td>9.1, 10.2, 10.3</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>12/06/2026</td>
+            <td>Análisis de hallazgos y evidencias recolectadas</td>
+            <td>9.1, 10.2</td>
+            <td>1.5 hrs</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>12/06/2026</td>
+            <td>Elaboración de conclusiones preliminares</td>
+            <td>10.2, 10.3</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+        </tr>
+        <tr>
+            <td>12/06/2026</td>
+            <td>Reunión de cierre de auditoría</td>
+            <td>General</td>
+            <td>1 hr</td>
+            <td>Auditor líder</td>
+        </tr>
+        <tr>
+            <td>12/06/2026</td>
+            <td>Presentación de hallazgos, no conformidades y oportunidades de mejora</td>
+            <td>9.1, 10.2, 10.3</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+        </tr>
+    </table>
+
+    <div class="subheader">Personal / Área auditada</div>
+
+    <p>
+        Durante la auditoría se considerará la participación de supervisores de aeropuerto, personal de atención al cliente,
+        personal de mostrador, responsables del área de documentación, área de equipaje documentado y responsables del
+        seguimiento a quejas o incidencias.
+    </p>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 8</span>
+    </div>
+</section>
+
+<!-- PAGINA 9 -->
+<section class="page">
+    <div class="header">8. Evidencias, Riesgos e Indicadores</div>
+
+    <div class="subheader">8.1 Evidencias a revisar</div>
+
+    <ul>
+        <li>Procedimiento documentado del proceso de check-in.</li>
+        <li>Registros de pasajeros atendidos.</li>
+        <li>Registros de equipaje documentado.</li>
+        <li>Reportes de incidencias en mostrador.</li>
+        <li>Registros de capacitación del personal.</li>
+        <li>Indicadores de tiempos de espera.</li>
+        <li>Encuestas de satisfacción del pasajero.</li>
+        <li>Quejas y reclamaciones.</li>
+        <li>Reportes de fallas en el sistema de check-in.</li>
+        <li>Acciones correctivas aplicadas en casos anteriores.</li>
+    </ul>
+
+    <div class="subheader">8.2 Riesgos principales del proceso</div>
+
+    <table>
+        <tr>
+            <th>Riesgo</th>
+            <th>Consecuencia</th>
+            <th>Control esperado</th>
+        </tr>
+        <tr>
+            <td>Fallas en el sistema de check-in</td>
+            <td>Retrasos y molestias para el pasajero</td>
+            <td>Plan de contingencia y soporte técnico.</td>
+        </tr>
+        <tr>
+            <td>Documentación incorrecta o incompleta</td>
+            <td>Problemas para abordar el vuelo</td>
+            <td>Verificación clara de requisitos.</td>
+        </tr>
+        <tr>
+            <td>Largas filas o tiempos de espera</td>
+            <td>Insatisfacción del cliente</td>
+            <td>Medición de tiempos y apertura de más módulos.</td>
+        </tr>
+        <tr>
+            <td>Errores en etiquetado de equipaje</td>
+            <td>Pérdida o envío incorrecto de maletas</td>
+            <td>Doble verificación de datos.</td>
+        </tr>
+        <tr>
+            <td>Falta de capacitación del personal</td>
+            <td>Atención deficiente o errores operativos</td>
+            <td>Programas de capacitación y evaluación.</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 9</span>
+    </div>
+</section>
+
+<!-- PAGINA 10 -->
+<section class="page">
+    <div class="header">9. Hallazgos Esperados y Cierre del Documento</div>
+
+    <div class="subheader">9.1 Posibles hallazgos de auditoría</div>
+
+    <table>
+        <tr>
+            <th>Tipo de hallazgo</th>
+            <th>Ejemplo</th>
+        </tr>
+        <tr>
+            <td>Conformidad</td>
+            <td>El personal sigue correctamente el procedimiento de verificación de documentos.</td>
+        </tr>
+        <tr>
+            <td>No conformidad menor</td>
+            <td>Algunos registros de equipaje no contienen todos los datos requeridos.</td>
+        </tr>
+        <tr>
+            <td>No conformidad mayor</td>
+            <td>No existe evidencia suficiente de capacitación del personal encargado del check-in.</td>
+        </tr>
+        <tr>
+            <td>Oportunidad de mejora</td>
+            <td>Implementar más kioscos de autoservicio en horarios de alta demanda.</td>
+        </tr>
+        <tr>
+            <td>Observación</td>
+            <td>Algunos pasajeros no reciben información clara sobre cambios de puerta o restricciones de equipaje.</td>
+        </tr>
+    </table>
+
+    <div class="subheader">9.2 Conclusión</div>
+
+    <p>
+        El presente plan de auditoría interna tiene como finalidad evaluar el proceso de check-in de pasajeros de Aeroméxico,
+        considerando su importancia dentro de la experiencia del cliente y la operación aeroportuaria.
+    </p>
+
+    <p>
+        A través de la revisión documental, observación directa, entrevistas y verificación de registros, se busca comprobar
+        el cumplimiento de los requisitos de la norma ISO 9001:2015 y de los procedimientos establecidos para el proceso.
+    </p>
+
+    <p>
+        La auditoría permitirá identificar fortalezas, no conformidades, riesgos y oportunidades de mejora, con el propósito
+        de aumentar la eficiencia del proceso, mejorar la atención al pasajero, reducir errores y contribuir a la mejora
+        continua del Sistema de Gestión de la Calidad.
+    </p>
+
+    <div class="signature-box">
+        <div class="signature">
+            <div class="line">Elaboró<br>Kim Seong Kyeong</div>
+        </div>
+        <div class="signature">
+            <div class="line">Aprobó<br>Nombre y firma del responsable</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 10</span>
+    </div>
+</section>
+
+</div>
+</body>
+</html>

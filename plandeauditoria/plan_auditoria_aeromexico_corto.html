@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<style>
+@page {
+    size: A4;
+    margin: 12mm;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f1f5f9;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111827;
+}
+
+.document {
+    width: 210mm;
+    margin: 0 auto;
+    background: white;
+}
+
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 16mm;
+    background: white;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover {
+    border-top: 13mm solid #6b002c;
+    border-bottom: 6mm solid #b38b2d;
+}
+
+.header {
+    background: #6b002c;
+    color: white;
+    padding: 9px 12px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.subheader {
+    color: #6b002c;
+    border-left: 5px solid #6b002c;
+    background: #f8fafc;
+    padding: 7px 10px;
+    margin: 13px 0 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.school {
+    text-align: center;
+    margin-top: 18mm;
+}
+
+.school h1 {
+    color: #6b002c;
+    font-size: 23px;
+    margin: 0;
+}
+
+.school h2 {
+    font-size: 17px;
+    margin-top: 8px;
+    font-weight: normal;
+    color: #374151;
+}
+
+.logo-box {
+    width: 100px;
+    height: 100px;
+    margin: 22px auto;
+    border: 2px dashed #cbd5e1;
+    border-radius: 6px;
+    color: #64748b;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.title {
+    text-align: center;
+    margin-top: 24mm;
+}
+
+.title h1 {
+    color: #6b002c;
+    font-size: 31px;
+    margin-bottom: 8px;
+}
+
+.title h2 {
+    color: #334155;
+    font-size: 19px;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.title h3 {
+    color: #475569;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+    margin-top: 8px;
+}
+
+th {
+    background: #6b002c;
+    color: white;
+    padding: 7px;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+}
+
+td {
+    padding: 7px;
+    border: 1px solid #cbd5e1;
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.info-table th {
+    width: 33%;
+}
+
+p {
+    font-size: 12.4px;
+    line-height: 1.43;
+    text-align: justify;
+    margin: 7px 0;
+}
+
+ul {
+    margin-top: 5px;
+    margin-bottom: 8px;
+    padding-left: 21px;
+}
+
+li {
+    font-size: 12.2px;
+    line-height: 1.38;
+    margin-bottom: 3px;
+}
+
+.note {
+    background: #fff7ed;
+    border-left: 5px solid #b38b2d;
+    padding: 8px 10px;
+    margin-top: 10px;
+    font-size: 11.7px;
+    text-align: justify;
+}
+
+.footer {
+    position: absolute;
+    bottom: 9mm;
+    left: 16mm;
+    right: 16mm;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 5px;
+    font-size: 10px;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signature-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20mm;
+}
+
+.signature {
+    width: 43%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.line {
+    border-top: 1px solid #111827;
+    padding-top: 6px;
+}
+
+.badge {
+    display: inline-block;
+    background: #b38b2d;
+    color: white;
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .document {
+        width: 210mm;
+        margin: 0;
+    }
+
+    .page {
+        margin: 0;
+        page-break-after: always;
+        box-shadow: none;
+    }
+
+    table, tr, td, th {
+        page-break-inside: avoid;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="document">
+
+<!-- PORTADA -->
+<section class="page cover">
+
+    <div class="school">
+        <h1>Instituto Politécnico Nacional</h1>
+        <h2>Escuela Superior de Física y Matemáticas</h2>
+        <h2>ESFM</h2>
+    </div>
+
+    <div class="logo-box">
+        Espacio para<br>logo IPN / ESFM
+    </div>
+
+    <div class="title">
+        <h1>Plan de Auditoría</h1>
+        <h2>Proceso de Check-in de Pasajeros en Aeroméxico</h2>
+        <h3>Asignatura: El sistema de calidad</h3>
+        <span class="badge">Documento académico</span>
+    </div>
+
+    <table class="info-table" style="margin-top: 26mm;">
+        <tr>
+            <th>Institución</th>
+            <td>Instituto Politécnico Nacional</td>
+        </tr>
+        <tr>
+            <th>Unidad Académica</th>
+            <td>Escuela Superior de Física y Matemáticas</td>
+        </tr>
+        <tr>
+            <th>Asignatura</th>
+            <td>El sistema de calidad</td>
+        </tr>
+        <tr>
+            <th>Título del trabajo</th>
+            <td>Plan de auditoría</td>
+        </tr>
+        <tr>
+            <th>Empresa seleccionada</th>
+            <td>Aeroméxico</td>
+        </tr>
+        <tr>
+            <th>Integrantes</th>
+            <td>Kim Seong Kyeong<br>Diana Brazo Perez</td>
+        </tr>
+        <tr>
+            <th>Fecha de elaboración</th>
+            <td>28 de mayo de 2026</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 1</span>
+    </div>
+</section>
+
+<!-- PAGINA 2 -->
+<section class="page">
+    <div class="header">Plan de Auditoría</div>
+
+    <table class="info-table">
+        <tr>
+            <th>Empresa</th>
+            <td>Aeroméxico</td>
+        </tr>
+        <tr>
+            <th>Proceso auditado</th>
+            <td>Proceso de check-in de pasajeros</td>
+        </tr>
+        <tr>
+            <th>Área auditada</th>
+            <td>Atención a pasajeros / Servicio al cliente en aeropuerto</td>
+        </tr>
+        <tr>
+            <th>Tipo de auditoría</th>
+            <td>Auditoría interna, conforme al enfoque de la norma ISO 9001:2015.</td>
+        </tr>
+        <tr>
+            <th>Alcance de la auditoría</th>
+            <td>
+                La auditoría comprende el proceso de check-in de pasajeros, desde la llegada del pasajero al área de documentación,
+                mostrador o kiosco de autoservicio, hasta la emisión del pase de abordar, verificación de documentos,
+                registro de equipaje y orientación hacia la sala de abordaje.
+            </td>
+        </tr>
+        <tr>
+            <th>Objetivo de la auditoría</th>
+            <td>
+                Verificar que el proceso de check-in de pasajeros se realice conforme a los procedimientos establecidos,
+                cumpliendo con los requisitos aplicables de la norma ISO 9001:2015, con el fin de evaluar su eficacia
+                e identificar oportunidades de mejora en la atención al cliente.
+            </td>
+        </tr>
+        <tr>
+            <th>Fecha de inicio</th>
+            <td>10 de junio de 2026</td>
+        </tr>
+        <tr>
+            <th>Fecha de finalización</th>
+            <td>12 de junio de 2026</td>
+        </tr>
+        <tr>
+            <th>Nombre del grupo auditor</th>
+            <td>Auditores del Mañana</td>
+        </tr>
+        <tr>
+            <th>Horario</th>
+            <td>09:00 a 14:00 horas</td>
+        </tr>
+        <tr>
+            <th>Idioma</th>
+            <td>Español</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        Este documento fue elaborado con fines académicos, tomando como referencia general el proceso de check-in de una aerolínea comercial aplicado al caso de Aeroméxico. No corresponde a documentación interna oficial de la empresa.
+    </div>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 2</span>
+    </div>
+</section>
+
+<!-- PAGINA 3 -->
+<section class="page">
+    <div class="header">Criterios, Método y Muestreo</div>
+
+    <div class="subheader">Criterios de auditoría / documentos de referencia</div>
+
+    <ul>
+        <li>Norma ISO 9001:2015.</li>
+        <li>Procedimiento general de check-in de pasajeros.</li>
+        <li>Políticas de atención al cliente.</li>
+        <li>Procedimiento de documentación y etiquetado de equipaje.</li>
+        <li>Registros de pasajeros atendidos y equipaje documentado.</li>
+        <li>Reportes de incidencias durante el proceso de check-in.</li>
+        <li>Indicadores de desempeño relacionados con tiempos de atención, quejas y satisfacción del pasajero.</li>
+    </ul>
+
+    <div class="subheader">Método de auditoría</div>
+
+    <p>
+        La auditoría se realizará por procesos, tomando como base el flujo del proceso de check-in de pasajeros.
+        Se aplicará revisión documental, observación directa, entrevistas al personal responsable y verificación de registros.
+    </p>
+
+    <table>
+        <tr>
+            <th>Método</th>
+            <th>Aplicación</th>
+        </tr>
+        <tr>
+            <td>Revisión documental</td>
+            <td>Revisión de procedimientos, registros, reportes de incidencias y quejas relacionadas con el check-in.</td>
+        </tr>
+        <tr>
+            <td>Observación directa</td>
+            <td>Observación del servicio en mostrador o kiosco, verificando tiempos, atención y cumplimiento del procedimiento.</td>
+        </tr>
+        <tr>
+            <td>Entrevistas</td>
+            <td>Entrevistas a personal de atención al cliente, supervisores y responsables del área de documentación.</td>
+        </tr>
+        <tr>
+            <td>Muestreo</td>
+            <td>Selección de registros de pasajeros, equipaje documentado, incidencias y quejas para comprobar evidencias.</td>
+        </tr>
+    </table>
+
+    <div class="subheader">Tipo de muestreo</div>
+
+    <p>
+        El muestreo será basado en riesgos y en la importancia del proceso, considerando situaciones como alta demanda de pasajeros,
+        errores en documentación, fallas del sistema, equipaje especial, cambios de vuelo y quejas del cliente.
+    </p>
+
+    <div class="subheader">Requisitos ISO 9001:2015 relacionados</div>
+
+    <table>
+        <tr>
+            <th>Requisito</th>
+            <th>Relación con el proceso</th>
+        </tr>
+        <tr>
+            <td>4.4</td>
+            <td>Gestión del proceso de check-in, entradas, salidas, responsables e indicadores.</td>
+        </tr>
+        <tr>
+            <td>7.1 / 7.2</td>
+            <td>Recursos disponibles y competencia del personal de atención a pasajeros.</td>
+        </tr>
+        <tr>
+            <td>7.5</td>
+            <td>Control de registros e información documentada del proceso.</td>
+        </tr>
+        <tr>
+            <td>8.2 / 8.5</td>
+            <td>Requisitos del pasajero y prestación controlada del servicio.</td>
+        </tr>
+        <tr>
+            <td>9.1 / 10.2 / 10.3</td>
+            <td>Evaluación del desempeño, acciones correctivas y mejora continua.</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 3</span>
+    </div>
+</section>
+
+<!-- PAGINA 4 -->
+<section class="page">
+    <div class="header">Programa de Auditoría</div>
+
+    <table>
+        <tr>
+            <th>Fecha</th>
+            <th>Actividad / Proceso</th>
+            <th>Requisito ISO</th>
+            <th>Duración</th>
+            <th>Responsable</th>
+            <th>Área auditada</th>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Reunión inicial</td>
+            <td>General</td>
+            <td>30 min</td>
+            <td>Auditor líder</td>
+            <td>Supervisión de aeropuerto y atención a pasajeros</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Presentación de alcance, objetivo y criterios</td>
+            <td>4.4, 5.1</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+            <td>Responsables del proceso</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Revisión del procedimiento de check-in</td>
+            <td>4.4, 7.5, 8.5</td>
+            <td>2 hrs</td>
+            <td>Equipo auditor</td>
+            <td>Área de documentación</td>
+        </tr>
+        <tr>
+            <td>10/06/2026</td>
+            <td>Verificación de recursos y sistemas disponibles</td>
+            <td>7.1</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+            <td>Mostradores / Kioscos de check-in</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Observación directa del servicio de check-in</td>
+            <td>8.2, 8.5, 9.1</td>
+            <td>2 hrs</td>
+            <td>Equipo auditor</td>
+            <td>Personal de atención a pasajeros</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Revisión de verificación documental</td>
+            <td>8.2, 8.5</td>
+            <td>1.5 hrs</td>
+            <td>Equipo auditor</td>
+            <td>Personal de documentación</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Revisión de registro y etiquetado de equipaje</td>
+            <td>7.5, 8.5</td>
+            <td>1.5 hrs</td>
+            <td>Equipo auditor</td>
+            <td>Área de equipaje documentado</td>
+        </tr>
+        <tr>
+            <td>11/06/2026</td>
+            <td>Revisión de quejas e incidencias</td>
+            <td>9.1, 10.2</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+            <td>Atención al cliente</td>
+        </tr>
+        <tr>
+            <td>12/06/2026</td>
+            <td>Análisis de hallazgos y evidencias</td>
+            <td>9.1, 10.2</td>
+            <td>1 hr</td>
+            <td>Equipo auditor</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>12/06/2026</td>
+            <td>Reunión de cierre</td>
+            <td>10.2, 10.3</td>
+            <td>1 hr</td>
+            <td>Auditor líder</td>
+            <td>Responsables del proceso auditado</td>
+        </tr>
+    </table>
+
+    <p style="margin-top: 12px;">
+        <b>Fecha de elaboración:</b> 28 de mayo de 2026
+    </p>
+
+    <div class="signature-box">
+        <div class="signature">
+            <div class="line">Elaboró<br>Kim Seong Kyeong</div>
+        </div>
+        <div class="signature">
+            <div class="line">Aprobó<br>Nombre y firma del responsable</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>Plan de Auditoría | Aeroméxico</span>
+        <span>Página 4</span>
+    </div>
+</section>
+
+</div>
+</body>
+</html>
